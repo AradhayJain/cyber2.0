@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4f46e5; /* Indigo */
+  --color-secondary: #a855f7; /* Purple */
+  --color-accent: #0ea5e9; /* Sky Blue */
+  --color-success: #10b981; /* Emerald */
+  --color-danger: #ef4444; /* Red */
+  
+  --animate-scan: scan 3s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-grid-fade: grid-fade 20s linear infinite;
+  --animate-flow: flow 20s linear infinite;
+
+  @keyframes scan {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+      filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.2));
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.6));
+    }
+  }
+
+  @keyframes grid-fade {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 40px 40px;
+    }
+  }
+
+  @keyframes flow {
+    0% {
+      stroke-dashoffset: 24;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/* Custom Design System Utilities */
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.08);
+  }
+
+  .glass-card-dark {
+    background: rgba(15, 23, 42, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.4);
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .gradient-border {
+    position: relative;
+    border-radius: 0.75rem;
+    background: linear-gradient(to right, #4f46e5, #a855f7);
+    padding: 1px;
+  }
+
+  .gradient-border-inner {
+    background: white;
+    border-radius: 11px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  background-color: #fcfdfe;
+  color: #1e293b;
+}
+
+/* Dynamic custom gradients for background */
+.radial-glow-1 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.radial-glow-2 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.radial-glow-3 {
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(255, 255, 255, 0) 75%);
+}
